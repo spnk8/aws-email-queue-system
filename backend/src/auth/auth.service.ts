@@ -5,10 +5,10 @@ import { SqsService } from 'src/sqs/sqs.service';
 export class AuthService {
     constructor(private readonly sqsService: SqsService) {}
 
-    async singup(email:string) {
+    async signup(email:string) {
         const message = {
             email,
-            type: 'welcpme-email',
+            type: 'welcome-email',
         }
         await this.sqsService.sendMessage(message)
         return {
